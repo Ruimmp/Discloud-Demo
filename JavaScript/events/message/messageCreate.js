@@ -21,14 +21,14 @@ module.exports = class MessageCreateEvent {
 
         // Check if the command is intended to be executed only in guilds
         if (command.guildOnly && message.channel.type === ChannelType.DM) {
-            return message.reply('I can\'t execute that command inside DMs!');
+            return message.reply("I can\'t execute that command inside DMs!");
         }
 
         // Check if the executing user has the necessary permissions to use the command
         if (command.permissions) {
             const authorPerms = message.channel.permissionsFor(message.author);
             if (!authorPerms || !authorPerms.has(command.permissions)) {
-                return message.reply('You don\'t have the necessary permissions to execute this command!');
+                return message.reply("You don\'t have the necessary permissions to execute this command!");
             }
         }
 
@@ -60,7 +60,7 @@ module.exports = class MessageCreateEvent {
             // Check if the user is still in the cooldown period and inform them about the remaining time
             if (now < expirationTime) {
                 const timeLeft = (expirationTime - now) / 1000;
-                return message.reply(`Please wait ${timeLeft.toFixed(0)} more second${timeLeft > 1 ? 's' : ''} before reusing the \`${command.name}\` command.`);
+                return message.reply(`Please wait ${timeLeft.toFixed(0)} more second${timeLeft > 1 ? "s" : ""} before reusing the \`${command.name}\` command.`);
             }
         }
 
@@ -71,7 +71,7 @@ module.exports = class MessageCreateEvent {
             command.execute(message, args);  // Execute the command with the provided arguments
         } catch (error) {
             console.error(error);  // Log any errors to the console
-            message.reply('There was an error trying to execute that command!');  // Inform the user about the error
+            message.reply("There was an error trying to execute that command!");  // Inform the user about the error
         }
     }
 };

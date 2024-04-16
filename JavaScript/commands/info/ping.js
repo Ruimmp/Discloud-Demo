@@ -30,8 +30,8 @@ module.exports = class PingCommand {
         const row = new ActionRowBuilder()
             .addComponents(
                 new ButtonBuilder()
-                    .setCustomId('ping') // Custom ID to handle button clicks
-                    .setLabel('Ping again') // Text on the button
+                    .setCustomId("ping") // Custom ID to handle button clicks
+                    .setLabel("Ping again") // Text on the button
                     .setStyle(ButtonStyle.Primary) // Style of the button (colored)
             );
 

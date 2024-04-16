@@ -47,31 +47,14 @@ module.exports = class UserInfoCommand {
             .setThumbnail(user.displayAvatarURL({ dynamic: true }))
             .setImage(user.bannerURL({ dynamic: true, size: 4096 }))
             .setColor(member.displayColor)
-            .addFields({
-                name: "Tag",
-                value: user.tag,
-                inline: true
-            }, {
-                name: "ID",
-                value: `\`${user.id}\``,
-                inline: true
-            }, {
-                name: "Joined At",
-                value: member.joinedAt.toLocaleString(),
-                inline: true
-            }, {
-                name: "Created At",
-                value: user.createdAt.toLocaleString(),
-                inline: true
-            }, {
-                name: "Roles",
-                value: member.roles.cache.filter(role => role.name !== "@everyone").map(role => role.name).join(", ") || "None",
-                inline: true
-            }, {
-                name: "Permissions",
-                value: member.permissions.toArray().join(", "),
-                inline: true
-            });
+            .addFields(
+                { name: "Tag", value: user.tag, inline: true },
+                { name: "ID", value: `\`${user.id}\``, inline: true },
+                { name: "Joined At", value: member.joinedAt.toLocaleString(), inline: true },
+                { name: "Created At", value: user.createdAt.toLocaleString(), inline: true },
+                { name: "Roles", value: member.roles.cache.filter(role => role.name !== "@everyone").map(role => role.name).join(", ") || "None", inline: true },
+                { name: "Permissions", value: member.permissions.toArray().join(", "), inline: true }
+            );
 
         const row = new ActionRowBuilder()
             .addComponents(

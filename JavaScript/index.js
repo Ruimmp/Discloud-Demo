@@ -41,7 +41,7 @@ class Bot extends Client {
             const fullPath = path.join(dirPath, file.name);
             if (file.isDirectory()) { // If it's a directory, recurse into it to load files
                 this.loadFilesRecursively(fullPath, registerFunction);
-            } else if (file.name.endsWith('.js')) { // If it's a JavaScript file, register it using the provided function
+            } else if (file.name.endsWith(".js")) { // If it's a JavaScript file, register it using the provided function
                 registerFunction(fullPath);
             }
         });

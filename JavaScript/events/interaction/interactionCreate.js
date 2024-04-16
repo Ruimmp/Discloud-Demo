@@ -16,14 +16,14 @@ module.exports = class InteractionCreateEvent {
 
             // Prevent command execution in DMs if the command is guild-only (ephemeral reply is only visible to the user who triggered the command)
             if (command.guildOnly && interaction.channel.type === ChannelType.DM) {
-                return interaction.reply({ content: 'I can\'t execute that command inside DMs!', ephemeral: true });
+                return interaction.reply({ content: "I can\'t execute that command inside DMs!", ephemeral: true });
             }
 
             // Check if the user has the necessary permissions to execute the command
             if (command.permissions) {
                 const authorPerms = interaction.channel.permissionsFor(interaction.user);
                 if (!authorPerms || !authorPerms.has(command.permissions)) {
-                    return interaction.reply({ content: 'You don\'t have the necessary permissions to execute this command!', ephemeral: true });
+                    return interaction.reply({ content: "You don\'t have the necessary permissions to execute this command!", ephemeral: true });
                 }
             }
 
@@ -32,7 +32,7 @@ module.exports = class InteractionCreateEvent {
                 command.execute(interaction);
             } catch (error) {
                 console.error(error);
-                interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+                interaction.reply({ content: "There was an error while executing this command!", ephemeral: true });
             }
         }
 
@@ -46,7 +46,7 @@ module.exports = class InteractionCreateEvent {
                 button.execute(interaction);
             } catch (error) {
                 console.error(error); // Log any errors to the console
-                interaction.reply({ content: 'There was an error while executing this button!', ephemeral: true }); // Send an ephemeral reply to the user
+                interaction.reply({ content: "There was an error while executing this button!", ephemeral: true }); // Send an ephemeral reply to the user
             }
         }
     }

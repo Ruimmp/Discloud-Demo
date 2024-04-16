@@ -26,8 +26,8 @@ module.exports = class PingCommand {
         const row = new ActionRowBuilder()
             .addComponents(
                 new ButtonBuilder()
-                    .setCustomId('ping')
-                    .setLabel('Ping again')
+                    .setCustomId("ping")
+                    .setLabel("Ping again")
                     .setStyle(ButtonStyle.Primary)
             );
 

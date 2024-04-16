@@ -21,12 +21,12 @@ module.exports = class ClearCommand {
 
         // Validate the parsed number to ensure it is a valid and sensible quantity
         if (isNaN(requestedAmount)) {
-            return message.reply("that doesn't seem to be a valid number.");
+            return message.reply("That doesn't seem to be a valid number.");
         }
 
         // Ensure the number is within the allowed range of 1 to 999 messages
         if (requestedAmount < 1 || requestedAmount > 999) {
-            return message.reply("you need to input a number between 1 and 999.");
+            return message.reply("You need to input a number between 1 and 999.");
         }
 
         const actualAmount = requestedAmount + 1; // Increase the count by one to account for the command message itself
@@ -51,8 +51,8 @@ module.exports = class ClearCommand {
                         messagesDeleted += deletedMessages.size; // Update the counter for deleted messages
                     })
                     .catch(error => {
-                        console.error('Failed to delete messages:', error);
-                        message.channel.send('There was an error trying to delete messages.');
+                        console.error("Failed to delete messages:", error);
+                        message.channel.send("There was an error trying to delete messages.");
                         return;
                     });
             }

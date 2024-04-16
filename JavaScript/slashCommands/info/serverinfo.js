@@ -45,43 +45,16 @@ module.exports = class ServerInfoCommand {
         const embed = new EmbedBuilder()
             .setTitle(":shield: Guild Info")
             .setThumbnail(guild.iconURL({ dynamic: true }))
-            .addFields({
-                name: "Name",
-                value: guild.name,
-                inline: true
-            }, {
-                name: "ID",
-                value: `\`${guild.id}\``,
-                inline: true
-            }, {
-                name: "Owner",
-                value: owner ? owner.tag : "Unknown",
-                inline: true
-            }, {
-                name: "Created At",
-                value: guild.createdAt.toLocaleString(),
-                inline: true
-            }, {
-                name: "Members Count",
-                value: guild.memberCount.toString(),
-                inline: true
-            }, {
-                name: "Text Channels Count",
-                value: guild.channels.cache.filter(channel => channel.type === ChannelType.GuildText).size.toString(),
-                inline: true
-            }, {
-                name: "Voice Channels Count",
-                value: guild.channels.cache.filter(channel => channel.type === ChannelType.GuildVoice).size.toString(),
-                inline: true
-            }, {
-                name: "Roles Count",
-                value: guild.roles.cache.size.toString(),
-                inline: true
-            }, {
-                name: "Emojis Count",
-                value: guild.emojis.cache.size.toString(),
-                inline: true
-            })
+            .addFields(
+                { name: "Name", value: guild.name, inline: true },
+                { name: "ID", value: `\`${guild.id}\``, inline: true },
+                { name: "Owner", value: owner ? owner.tag : "Unknown", inline: true },
+                { name: "Created At", value: guild.createdAt.toLocaleString(), inline: true },
+                { name: "Members Count", value: guild.memberCount.toString(), inline: true },
+                { name: "Text Channels Count", value: guild.channels.cache.filter(channel => channel.type === ChannelType.GuildText).size.toString(), inline: true },
+                { name: "Voice Channels Count", value: guild.channels.cache.filter(channel => channel.type === ChannelType.GuildVoice).size.toString(), inline: true },
+                { name: "Roles Count", value: guild.roles.cache.size.toString(), inline: true },
+                { name: "Emojis Count", value: guild.emojis.cache.size.toString(), inline: true })
             .setColor("Random");
 
         const row = new ActionRowBuilder()

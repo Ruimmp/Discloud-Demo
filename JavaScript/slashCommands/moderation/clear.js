@@ -33,11 +33,11 @@ module.exports = class ClearCommand {
         await interaction.deferReply();
 
         if (isNaN(requestedAmount)) {
-            return interaction.editReply("that doesn't seem to be a valid number.");
+            return interaction.editReply("That doesn't seem to be a valid number.");
         }
 
         if (requestedAmount < 1 || requestedAmount > 999) {
-            return interaction.editReply("you need to input a number between 1 and 999.");
+            return interaction.editReply("You need to input a number between 1 and 999.");
         }
 
         const actualAmount = requestedAmount + 1;
@@ -59,8 +59,8 @@ module.exports = class ClearCommand {
                         messagesDeleted += deletedMessages.size;
                     })
                     .catch(error => {
-                        console.error('Failed to delete messages:', error);
-                        interaction.channel.send('There was an error trying to delete messages.');
+                        console.error("Failed to delete messages:", error);
+                        interaction.channel.send("There was an error trying to delete messages.");
                         return;
                     });
             }
