@@ -1,0 +1,7 @@
+# Environments
+*.env
+
+# JavaScript
+*node_modules
+*package-lock.json
+
