@@ -1,0 +1,12 @@
+{
+    "prefix": "!",
+    "client": {
+        "presence": {
+            "status": "idle",
+            "activity": {
+                "type": "Custom",
+                "name": "discloudbot.com"
+            }
+        }
+    }
+}
